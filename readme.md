@@ -8,89 +8,57 @@
 ## Язык программирования SwagLang
 
 ```bnf
-<program>       ::= "run" <block> [<data_section>]
+<program> ::= <data_section> <text_section>
 
-<block>         ::= "{" <commands> "}"
+<data_section> ::= "data:" "{" {<data_definition>}* "}"
 
-<commands>      ::= <command> <commands> | ε
+<data_definition> ::= <label> ":" <data_value> ";"
 
-<command>       ::= <operation> ";" 
-                  | <jump> ";" 
-                  | <label> ":" <block> 
-                  | <label> ":" ";" 
-                  | ε
+<data_value> ::= <string_literal> | <number>
 
-<operation>     ::= <load> 
-                  | <store> 
-                  | <input> 
-                  | <output> 
-                  | <add> 
-                  | <sub> 
-                  | <cmp> 
-                  | <readchar> 
-                  | <writechar> 
+<string_literal> ::= '"' {<char>}* '"'
 
-<load>          ::= "load" "[" <reg> "," <value_or_address> "]"
+<number> ::= <digit> {<digit>}*
 
-<store>         ::= "store" "[" <address> "," <reg> "]"
+<text_section> ::= "run" <block>
 
-<readchar>      ::= "readchar" "[" <reg> "," <stream> "]"
+<block> ::= ":{" {<instruction>}* "}"
 
-<writechar>     ::= "writechar" "[" <reg> "," <stream> "]"
+<instruction> ::= <label> ":" <block>
+                | <label> ":" 
+                | <command> ";"
 
-<input>         ::= "input" "[" <reg> "," <stream> "]"
+<command> ::= "load" "[" <reg> "," <value_or_address> "]"
+            | "store" "[" <reg> "," <address> "]"
+            | "input" "[" <reg> "," <stream> "]"
+            | "output" "[" <reg> "," <stream> "]"
+            | "inputchar" "[" <reg> "," <stream> "]"
+            | "outputchar" "[" <reg> "," <stream> "]"
+            | "add" "[" <reg> "," <reg_or_value> "]"
+            | "sub" "[" <reg> "," <reg_or_value> "]"
+            | "cmp" "[" <reg> "," <reg_or_value> "]"
+            | "jmp" "[" <label> "]"
+            | "je" "[" <label> "]"
+            | "jne" "[" <label> "]"
+            | "stop"
 
-<output>        ::= "output" "[" <reg> "," <stream> "]"
+<reg> ::= "R1" | "R2" | "R3"
 
-<add>           ::= "add" "[" <reg> "," <reg_or_value> "]"
+<value_or_address> ::= <number> | <address>
 
-<sub>           ::= "sub" "[" <reg> "," <reg_or_value> "]"
+<address> ::= <label>
 
-<cmp>           ::= "cmp" "[" <reg> "," <reg_or_value> "]"
+<stream> ::= "!" <label>
 
-<jump>          ::= "jmp" "[" <identifier> "]"
-                  | "je" "[" <identifier> "]"
-                  | "jne" "[" <identifier> "]"
-                  | "jg" "[" <identifier> "]"
-                  | "jl" "[" <identifier> "]"
+<label> ::= <letter> {<letter> | <digit>}*
 
-<label>         ::= <identifier>
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
-<reg>           ::= "R1" | "R2" | "R3"
+<letter> ::= "a" | ... | "z" | "A" | ... | "Z"
 
-<reg_or_value>  ::= <reg> | <value>
+<char> ::= <letter> | <digit> | <special_char>
 
-<value>         ::= <integer> | <hex_value>
-
-<value_or_address> ::= <value> | <address>
-
-<stream>        ::= "!" <identifier>
-
-<address>       ::= <identifier>
-
-<data_section>  ::= "data" "{" <data_definitions> "}"
-
-<data_definitions> ::= <data_definition> <data_definitions> | ε
-
-<data_definition>  ::= <identifier> ":" <data_value> ";"
-
-<data_value>    ::= <integer> | <string_literal>
-
-<identifier>    ::= <letter> {<letter> | <digit>}*
-
-<letter>        ::= "A" | ... | "Z" | "a" | ... | "z"
-
-<integer>       ::= <digit> {<digit>}*
-
-<digit>         ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-
-<hex_value>     ::= "0x" <hex_digit> {<hex_digit>}*
-
-<hex_digit>     ::= <digit> | "A" | "B" | "C" | "D" | "E" | "F"
-
-<string_literal> ::= '"' {<any_character>}* '"'
-
-<any_character> ::= любой символ, кроме двойной кавычки и символа новой строки
+<special_char> ::= "!" | "\"" | "#" | "$" | "%" | "&" | "'" | "(" | ")" | "*" | "+" | "," | "-" | "." | "/" | ":" | ";" | "<" | "=" | ">" | "?" | "@" | "[" | "\\" | "]" | "^" | "_" | "`" | "{" | "|" | "}" | "~"
 ```
 
 ---
@@ -107,18 +75,17 @@
 
 ```asm
 load[R1, 100];          // R1 = 100
-load[R2, 0xFF];         // R2 = 255 (шестнадцатеричное значение)
 load[R3, myVar];        // R3 = значение переменной myVar из секции данных
 ```
 
-#### **`store[address, reg]`**
+#### **`store[reg, address]`**
 
 Сохраняет значение из регистра по указанному адресу памяти.
 
 **Пример:**
 
 ```asm
-store[sum, R1];         // Сохраняем значение из R1 в переменную sum
+store[R1, sum];         // Сохраняем значение из R1 в переменную sum
 ```
 
 #### **`add[reg, reg_or_value]`**
@@ -178,24 +145,24 @@ output[R3, !OUTPUT];    // Выводим число из R3 в поток OUTPU
 
 ### 2.3 Работа с символами
 
-#### **`readchar[reg, !stream]`**
+#### **`inputchar[reg, !stream]`**
 
 Считывает один символ из потока и сохраняет его в регистр.
 
 **Пример:**
 
 ```asm
-readchar[R1, !INPUT];   // Считываем символ из потока INPUT в R1
+inputchar[R1, !INPUT];   // Считываем символ из потока INPUT в R1
 ```
 
-#### **`writechar[reg, !stream]`**
+#### **`outputchar[reg, !stream]`**
 
 Выводит один символ из регистра в поток.
 
 **Пример:**
 
 ```asm
-writechar[R2, !OUTPUT]; // Выводим символ из R2 в поток OUTPUT
+outputchar[R2, !OUTPUT]; // Выводим символ из R2 в поток OUTPUT
 ```
 
 ### 2.4 Переходы и метки
@@ -301,20 +268,12 @@ run {
 
 ### 5.1 Целочисленные литералы
 
-- **Десятичные числа**: последовательность цифр от `0` до `9`.
+- **Десятичные числа**: последовательность цифр от `0` до `9`. (в рамках 9 бит)
 
   **Пример:**
 
   ```asm
   load[R1, 100];      // Десятичное число 100
-  ```
-
-- **Шестнадцатеричные числа**: начинаются с `0x`, за которым следует последовательность шестнадцатеричных цифр (`0-9`, `A-F`).
-
-  **Пример:**
-
-  ```asm
-  load[R2, 0x1A];     // Шестнадцатеричное число 26
   ```
 
 ### 5.2 Строковые литералы
@@ -437,3 +396,6 @@ data {
 5. **Завершение программы:**
 
    - Метка `end` обозначает конец программы.
+
+---
+## Микрокод

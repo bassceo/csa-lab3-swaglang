@@ -12,8 +12,9 @@ class SwagLangTranslator:
         'jne': '01000',
         'input': '01001',
         'output': '01010',
-        'readchar': '01011',
-        'writechar': '01100',
+        'inputchar': '01011',
+        'outputchar': '01100',
+        'stop': '10000'
     }
 
     REGISTERS = {
@@ -53,11 +54,17 @@ class SwagLangTranslator:
                         match = re.match(r'(\w+):"(.*?)";', block)
                         if match:
                             key = match.group(1)
-                            value = match.group(2)
+                            value = '"' + match.group(2) + chr(0) + '"'
                             result[key] = value
                             block = block[len(match.group(0)):]
                         else:
-                            break
+                            match = re.match('stop;', block)
+                            if match:
+                                
+                                result[match.group(0)[:-1]] = ''
+                                block = block[len(match.group(0)):]
+                            else:
+                                break
             return result
 
         def extract_nested_block(block: str):
@@ -76,6 +83,9 @@ class SwagLangTranslator:
     def translate_command(self, command):
         op = list(command.keys())[0]
         args = command[op]
+        
+        if op=='stop':
+            return self.OPCODES[op].zfill(5) + ("0"*9*3)
 
         binary = self.OPCODES[op].zfill(5)
 
@@ -126,6 +136,7 @@ class SwagLangTranslator:
                     char_code = ord(char)
                     self.data_section[f"{x}_{char}"] = self.current_address
                     binary += self.translate_command({"load":['R1', char_code]})+"\n"+self.translate_command({"store": ['R1', self.current_address]})+"\n"
+                    self.current_address += 1
             self.current_address += 1
         return binary
     
@@ -134,7 +145,7 @@ class SwagLangTranslator:
             if node in self.OPCODES:
                 self.counter+=1
             else:
-                self.marks[node] = self.counter
+                self.marks[node] = self.counter+1
                 self.set_marks(tree=tree[node])
         
     
@@ -161,12 +172,12 @@ class SwagLangTranslator:
                 clean_code += '"'
         
         self.code_tree = self.parse_syntax(clean_code)
+        print(self.code_tree)
         parsed_data = self.parse_data()
         self.counter = len(parsed_data.replace("\n", ""))//32
         
         self.set_marks(self.code_tree['run'])
         parsed_run = self.parse_run(self.code_tree['run'])
-        print(self.marks)
         return (parsed_data+parsed_run).replace("\n", "")
 
 
@@ -174,13 +185,13 @@ translator = SwagLangTranslator()
 
 code = """
 data: {
-    str: "Hello world!";              
+    str: "Hello world!";           
 }
 run: {
     load[R1, str];          
 
     read_loop: {
-        cmp[R2, 0];          
+        cmp[R1, 0];          
         je[write_loop];         
         
         add[R1, 1];     
@@ -200,8 +211,31 @@ run: {
         jmp[output_loop];      
     }
     end: {
+        stop;
     }
 }
 """
+translated = translator.translate_code(code)
 
-print(translator.translate_code(code))
+buffer = ""
+command = 1
+for i in translated:
+    if len(buffer) == 32:
+        op = ""
+        for j in translator.OPCODES:
+            if translator.OPCODES[j]==buffer[:5]:
+                op=j
+        
+        print(command, " ",op, " ", int(buffer[5:14],2)," ", int(buffer[14:23],2) ," ", int(buffer[23:32],2))
+        buffer = ""
+        command+=1
+    buffer += i
+if len(buffer) == 32:
+        op = ""
+        for j in translator.OPCODES:
+            if translator.OPCODES[j]==buffer[:5]:
+                op=j
+        
+        print(command, " ",op, " ", int(buffer[5:14],2)," ", int(buffer[14:23],2) ," ", int(buffer[23:32],2))
+        buffer = ""
+        command+=1
