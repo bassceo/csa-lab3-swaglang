@@ -97,119 +97,9 @@ out_code: |-
     "2": "What is your name?\u0000\nHello, \u0000\u0000!\u0000"
   }
 out_stdout: |
-  {'data': [{'str1': 'What is your name?'}, {'str2': 'Hello, '}, {'str3': '!'}], 'run': [{'load': ['R1', 'str1']}, {'read_loop': [{'load_from': ['R2', 'R1']}, {'outputchar': ['R2', 2]}, {'load': ['R3', 0]}, {'cmp': ['R2', 'R3']}, {'je': ['read']}, {'load': ['R2', 1]}, {'add': ['R1', 'R2']}, {'jmp': ['read_loop']}]}, {'read': [{'load': ['R1', 100]}, {'jmp': ['read_name']}]}, {'read_name': [{'inputchar': ['R2', 0]}, {'store_to': ['R2', 'R1']}, {'cmp': ['R2', 'R3']}, {'je': ['out_1']}, {'load': ['R2', 1]}, {'add': ['R1', 'R2']}, {'jmp': ['read_name']}]}, {'out_1': [{'load': ['R3', 10]}, {'outputchar': ['R3', 2]}, {'load': ['R3', 0]}, {'load': ['R1', 'str2']}, {'jmp': ['output_loop_1']}]}, {'output_loop_1': [{'load_from': ['R2', 'R1']}, {'outputchar': ['R2', 2]}, {'load': ['R3', 0]}, {'cmp': ['R2', 'R3']}, {'je': ['out_2']}, {'load': ['R2', 1]}, {'add': ['R1', 'R2']}, {'jmp': ['output_loop_1']}]}, {'out_2': [{'load': ['R1', 100]}, {'jmp': ['output_loop_2']}]}, {'output_loop_2': [{'load_from': ['R2', 'R1']}, {'outputchar': ['R2', 2]}, {'load': ['R3', 0]}, {'cmp': ['R2', 'R3']}, {'je': ['out_3']}, {'load': ['R2', 1]}, {'add': ['R1', 'R2']}, {'jmp': ['output_loop_2']}]}, {'out_3': [{'load': ['R1', 'str3']}, {'jmp': ['output_loop_3']}]}, {'output_loop_3': [{'load_from': ['R2', 'R1']}, {'outputchar': ['R2', 2]}, {'load': ['R3', 0]}, {'cmp': ['R2', 'R3']}, {'je': ['end']}, {'load': ['R2', 1]}, {'add': ['R1', 'R2']}, {'jmp': ['output_loop_3']}]}, {'end': [{'stop': None}]}]}
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  store
-  load
-  load_from
-  outputchar
-  load
-  cmp
-  je
-  load
-  add
-  jmp
-  load
-  jmp
-  inputchar
-  store_to
-  cmp
-  je
-  load
-  add
-  jmp
-  load
-  outputchar
-  load
-  load
-  jmp
-  load_from
-  outputchar
-  load
-  cmp
-  je
-  load
-  add
-  jmp
-  load
-  jmp
-  load_from
-  outputchar
-  load
-  cmp
-  je
-  load
-  add
-  jmp
-  load
-  jmp
-  load_from
-  outputchar
-  load
-  cmp
-  je
-  load
-  add
-  jmp
-  stop
   
-  [Clock] Такт: 1
+out_log: |
+    [Clock] Такт: 1
   [ControlUnit] Fetch: '000010000000000000000000000100000000000000001010111', PC: 0
   
   [Clock] Такт: 2
@@ -5201,4 +5091,3 @@ out_stdout: |
   [Decoder] Команда stop
   
   [Clock] Такт: 1513
-out_log: |

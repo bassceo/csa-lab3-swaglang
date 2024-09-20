@@ -46,12 +46,10 @@ class SwagLangTranslator:
                     label = match.group(1)
                     block = block[match.end():]
                     nested_block_content, block = extract_nested_block(block)
-                    # Рекурсивно парсим вложенный блок
                     nested_commands = parse_block(nested_block_content)
                     commands.append({label: nested_commands})
                     continue
 
-                # Проверка на команду с аргументами в квадратных скобках
                 match = re.match(r'^(\w+)\s*\[([^\]]*?)\]\s*;', block)
                 if match:
                     cmd_name = match.group(1)
@@ -70,7 +68,6 @@ class SwagLangTranslator:
                     block = block[match.end():]
                     continue
 
-                # Проверка на присваивание строки
                 match = re.match(r'^(\w+)\s*:\s*"(.*?)"\s*;', block)
                 if match:
                     key = match.group(1)
@@ -101,10 +98,8 @@ class SwagLangTranslator:
                     block = block[match.end():]
                     continue
 
-                # Если ничего не подошло, прерываем цикл
                 break
 
-            # Преобразование числовых аргументов в целые числа
             for cmd in commands:
                 for key, args in cmd.items():
                     if isinstance(args, list):
@@ -113,7 +108,7 @@ class SwagLangTranslator:
                             if isinstance(arg, str) and arg.isdigit():
                                 args[i] = int(arg)
                     else:
-                        pass  # Оставляем другие типы данных без изменений
+                        pass 
             return commands
 
         def extract_nested_block(code):
@@ -139,7 +134,6 @@ class SwagLangTranslator:
                 if not code:
                     break
 
-                # Попытка сопоставить верхнеуровневый блок
                 match = re.match(r'^(\w+)\s*:\s*{', code)
                 if match:
                     label = match.group(1)
@@ -150,7 +144,6 @@ class SwagLangTranslator:
                     blocks[label] = parsed_commands
                     continue
                 else:
-                    # Если нет блоков, прерываем цикл
                     break
 
             return blocks
@@ -254,7 +247,6 @@ class SwagLangTranslator:
         self.code_tree = self.parse_syntax(clean_code)
         parsed_data = self.parse_data()
         self.counter = len(parsed_data.replace("\n", ""))//51
-        print(self.code_tree)
         self.set_marks(self.code_tree['run'])
         parsed_run = self.parse_run(self.code_tree['run'])
         return (parsed_data+parsed_run).replace("\n", "")

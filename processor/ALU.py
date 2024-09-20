@@ -22,7 +22,7 @@ class ALU:
         elif op == 'mod':
             self.result = dest_val % src_val
         else:
-            self.result = 0  # Если операция не поддерживается
+            self.result = 0
         print(f"[ALU] Результат: {self.result}, Флаг нуля: {self.zero_flag}")
 
     def get_result(self):

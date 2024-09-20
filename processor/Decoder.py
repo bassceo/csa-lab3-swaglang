@@ -29,7 +29,7 @@ class Decoder:
         pass
 
     def decode(self, instruction_str):
-        instruction = instruction_str  # Строка из 51 бита
+        instruction = instruction_str 
         opcode_bin = instruction[:5]
         operand1_bin = instruction[5:28]
         operand2_bin = instruction[28:51]

@@ -1,7 +1,6 @@
 class OutputDevice:
-    """Устройство вывода, собирающее данные от процессора."""
     def __init__(self):
-        self.buffer = {}  # Словарь для накопления вывода по портам
+        self.buffer = {}  
 
     def write(self, data, port):
         if port not in self.buffer:

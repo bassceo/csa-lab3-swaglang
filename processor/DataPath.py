@@ -7,11 +7,11 @@ class Datapath:
             'R2': 0,
             'R3': 0
         }
-        self.memory = {}  # Память для инструкций load_from и store
+        self.memory = {} 
         self.alu = ALU()
-        self.input_device = input_device  # Устройство ввода
-        self.output_device = output_device  # Устройство вывода
-        self.memory_buffer = None  # Буфер для операций load_from
+        self.input_device = input_device 
+        self.output_device = output_device 
+        self.memory_buffer = None 
 
     def perform_alu_operation(self, control_signals):
         alu_op = control_signals.get('alu_op', None)
