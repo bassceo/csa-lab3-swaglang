@@ -52,7 +52,7 @@ class ControlSignals:
     def reset(self):
         for field_name in self.__dataclass_fields__:
             if field_name == "halt":
-                continue  # Не сбрасываем сигнал halt
+                continue
             value = getattr(self, field_name)
             if isinstance(value, bool):
                 setattr(self, field_name, False)
