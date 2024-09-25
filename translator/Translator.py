@@ -1,4 +1,7 @@
 import re
+import argparse
+import sys
+from pathlib import Path
 
 
 class SwagLangTranslator:
@@ -261,3 +264,50 @@ class SwagLangTranslator:
         self.set_marks(self.code_tree["run"])
         parsed_run = self.parse_run(self.code_tree["run"])
         return (parsed_data + parsed_run).replace("\n", "")
+
+
+
+def binary_string_to_bytes(binary_str):
+    padding_length = (8 - len(binary_str) % 8) % 8
+    binary_str = binary_str + '0' * padding_length
+    byte_array = bytearray()
+    for i in range(0, len(binary_str), 8):
+        byte = binary_str[i:i+8]
+        byte_array.append(int(byte, 2))
+    return bytes(byte_array)
+
+def main():
+    parser = argparse.ArgumentParser(description="SwagLang Translator")
+    parser.add_argument("input_file", type=Path, help="Путь к исходному файлу SwagLang")
+    parser.add_argument("output_file", type=Path, help="Путь для сохранения бинарного файла")
+    args = parser.parse_args()
+
+    if not args.input_file.is_file():
+        print(f"Ошибка: Файл {args.input_file} не существует.", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        with args.input_file.open("r", encoding="utf-8") as f:
+            code = f.read()
+    except Exception as e:
+        print(f"Ошибка при чтении файла: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    translator = SwagLangTranslator()
+    try:
+        binary_str = translator.translate_code(code)
+    except Exception as e:
+        print(f"Ошибка при переводе кода: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        binary_bytes = binary_string_to_bytes(binary_str)
+        with args.output_file.open("wb") as f:
+            f.write(binary_bytes)
+        print(f"Бинарный файл успешно сохранен в {args.output_file}")
+    except Exception as e:
+        print(f"Ошибка при сохранении бинарного файла: {e}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
