@@ -5,7 +5,7 @@
 
 ---
 
-## Язык программирования SwagLang
+## SwagLang
 
 
 ```
@@ -29,8 +29,10 @@
                | <label> ":"
                | <command> ";"
 
-<command> ::= "load" "[" <reg> "," <value_or_address> "]"
+<command> ::= "load" "[" <reg> "," <value> "]"
+           | "load" "[" <reg> "," "(" <address_from_reg> ")" "]"
            | "store" "[" <reg> "," <address> "]"
+           | "store" "[" <reg> "," "(" <address_from_reg> ")" "]"
            | "input" "[" <reg> "," <stream> "]"
            | "output" "[" <reg> "," <stream> "]"
            | "inputchar" "[" <reg> "," <stream> "]"
@@ -40,10 +42,7 @@
            | "cmp" "[" <reg> "," <reg_or_value> "]"
            | "jmp" "[" <label> "]"
            | "je" "[" <label> "]"
-           | "jne" "[" <label> "]"
-           | "jg" "[" <label> "]"
-           | "jl" "[" <label> "]"
-           | "isneg" "[" <label> "]"
+           | "jn" "[" <label> "]"
            | "mod" "[" <reg> "," <reg_or_value> "]"
            | "stop"
 
@@ -234,11 +233,11 @@ data {
 
 ## Control Unit
 
-![Control Unit](./images/controlunit.jpg)
+![Control Unit](./images/controlunit.png)
 
 ## DataPath
 
-![DataPath](./images/datapath.jpg)
+![DataPath](./images/datapath.png)
 
 ---
 
