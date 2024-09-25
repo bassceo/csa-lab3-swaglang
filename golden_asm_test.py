@@ -29,7 +29,7 @@ def test_translator_pipeline(golden, caplog):
         
         if len(caplog.text) >= 124000:
             lines = caplog.text.splitlines()[:1000]
-            assert "\n".join(lines).replace(" ", '').replace('\n', '') == golden.out["out_log"].splitlines()[:1000].replace(" ", '').replace('\n', '')
+            assert "\n".join(lines).replace(" ", '').replace('\n', '') == "".join(golden.out["out_log"].splitlines()[:1000]).replace(" ", '').replace('\n', '')
         else:
             assert caplog.text.replace(" ", '').replace('\n', '') == golden.out["out_log"].replace(" ", '').replace('\n', '')
 
