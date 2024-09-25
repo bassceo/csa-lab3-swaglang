@@ -2,6 +2,7 @@
 name = "csa-lab3"
 version = "0.1.0"
 description = ""
+authors = ["notttk <meregodz@gmail.co >"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
