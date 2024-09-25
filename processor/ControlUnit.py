@@ -46,7 +46,10 @@ class ControlUnit:
 
     def memory_access(self):
         if self.control_signals:
-            if self.control_signals["load_from_enable"] or self.control_signals["store_enable"]:
+            if (
+                self.control_signals["load_from_enable"]
+                or self.control_signals["store_enable"]
+            ):
                 self.datapath.perform_memory_operation(self.control_signals)
         else:
             pass
@@ -79,18 +82,20 @@ class ControlUnit:
             else:
                 self.pc += 1
 
-    def log(self, tick,instruction_memory):
+    def log(self, tick, instruction_memory):
         op = ""
         for i in OPCODES:
-            if(OPCODES[i]==instruction_memory[self.pc][:5]):
-                op=i
-        self.logger.debug(f" Tick={tick} | STAGE={self.instruction_stage} | OP={op} | PC={self.pc} | R1={self.datapath.registers['R1']} | R2={self.datapath.registers['R2']} | R3={self.datapath.registers['R3']} |  data={self.datapath.memory}")
+            if OPCODES[i] == instruction_memory[self.pc][:5]:
+                op = i
+        self.logger.debug(
+            f" Tick={tick} | STAGE={self.instruction_stage} | OP={op} | PC={self.pc} | R1={self.datapath.registers['R1']} | R2={self.datapath.registers['R2']} | R3={self.datapath.registers['R3']} |  data={self.datapath.memory}"
+        )
 
     def run(self, clock, instruction_memory):
         self.print_state()
         while not self.halted:
             tick = clock.tick()
-            self.log(tick,instruction_memory)
+            self.log(tick, instruction_memory)
             if self.instruction_stage == "FETCH":
                 self.fetch_instruction(instruction_memory)
                 self.instruction_stage = "DECODE"
@@ -108,7 +113,9 @@ class ControlUnit:
                 self.write_back()
                 self.instruction_stage = "FETCH"
             else:
-                raise Exception(f"[Error] Неизвестный этап инструкции: {self.instruction_stage}")
+                raise Exception(
+                    f"[Error] Неизвестный этап инструкции: {self.instruction_stage}"
+                )
 
     def print_state(self):
         pass

@@ -19,7 +19,6 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
-line-length = 88
 exclude = ["*/__pycache__/*", "*/.git/*", "*/docs/*"]
 lint.select = [
     # A set of chosen linter rules is specified here.

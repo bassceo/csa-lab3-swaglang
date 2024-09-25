@@ -12,16 +12,14 @@ def read_code_from_file(file_path):
     with open(file_path) as file:
         return file.read()
 
+
 def run_pipeline(file_path, input_str=" "):
     code = read_code_from_file(file_path)
 
     translator = SwagLangTranslator()
     translated = translator.translate_code(code)
 
-
-    input_data = {
-        0: list(input_str + chr(0))
-    }
+    input_data = {0: list(input_str + chr(0))}
 
     input_device = InputDevice(input_data)
     output_device = OutputDevice()
@@ -30,10 +28,10 @@ def run_pipeline(file_path, input_str=" "):
     datapath = Datapath(input_device, output_device)
     control_unit = ControlUnit(datapath)
 
-    print (translated)
+    print(translated)
     instructions = []
     for i in range(len(translated) // 51):
-        instr = translated[i*51:(i+1)*51]
+        instr = translated[i * 51 : (i + 1) * 51]
         instructions.append(instr)
 
     control_unit.run(clock, instructions)
@@ -43,6 +41,7 @@ def run_pipeline(file_path, input_str=" "):
         output[port] = "".join(data)
 
     return output
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

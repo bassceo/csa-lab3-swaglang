@@ -4,15 +4,14 @@ class InputDevice:
 
     def read(self, port, type):
         if self.buffer.get(port):
-
-            if type=="number":
+            if type == "number":
                 tmp = ""
                 word = ""
-                while(True):
+                while True:
                     tmp = self.buffer[port].pop(0)
-                    if tmp==chr(0):
+                    if tmp == chr(0):
                         break
-                    word+=tmp
+                    word += tmp
                 return int(word)
             return self.buffer[port].pop(0)
         return None

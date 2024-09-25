@@ -20,10 +20,10 @@ class ALU:
         else:
             self.result = 0
 
-        if(self.result<0):
+        if self.result < 0:
             self.negative_flag = 1
         else:
-            self.negative_flag  = 0
+            self.negative_flag = 0
 
     def get_result(self):
         return self.result

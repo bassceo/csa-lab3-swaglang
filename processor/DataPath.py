@@ -3,11 +3,7 @@ from processor.ALU import ALU
 
 class Datapath:
     def __init__(self, input_device, output_device):
-        self.registers = {
-            "R1": 0,
-            "R2": 0,
-            "R3": 0
-        }
+        self.registers = {"R1": 0, "R2": 0, "R3": 0}
         self.memory = {}
         self.alu = ALU()
         self.input_device = input_device
@@ -22,7 +18,7 @@ class Datapath:
             reg_src1 = control_signals.get("reg_src1", "")
             reg_src2 = control_signals.get("reg_src2", "")
             src_val1 = self.registers[reg_src1]
-            if alu_op=="cmp":
+            if alu_op == "cmp":
                 src_val2 = self.registers[reg_src2]
             else:
                 src_val2 = self.registers["R2"]
@@ -94,7 +90,9 @@ class Datapath:
             else:
                 raise Exception(f"[Error] Неизвестный тип ввода: {input_type}")
         else:
-            raise Exception(f"[Error] Буфер ввода порта {port} пуст. Остановка выполнения.")
+            raise Exception(
+                f"[Error] Буфер ввода порта {port} пуст. Остановка выполнения."
+            )
 
     def write_to_port(self, reg_src, port, output_type):
         value = self.registers[reg_src]

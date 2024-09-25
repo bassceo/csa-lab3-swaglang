@@ -25,14 +25,25 @@ def test_translator_pipeline(golden, caplog):
 
         output, translated = run_pipeline(source, input_data)
 
-        assert output.replace(" ", "").replace("\n", "").replace("\x00", "") == (golden.out["out_stdout"].replace(" ", "").replace("\n", "").replace("\x00", ""))
-        assert translated.replace(" ", "").replace("\n", "") == (golden.out["out_code"].replace(" ", "").replace("\n", ""))
+        assert output.replace(" ", "").replace("\n", "").replace("\x00", "") == (
+            golden.out["out_stdout"]
+            .replace(" ", "")
+            .replace("\n", "")
+            .replace("\x00", "")
+        )
+        assert translated.replace(" ", "").replace("\n", "") == (
+            golden.out["out_code"].replace(" ", "").replace("\n", "")
+        )
 
         if len(caplog.text) >= 124000:
             lines = caplog.text.splitlines()[:1000]
-            assert "\n".join(lines).replace(" ", "").replace("\n", "") == "".join(golden.out["out_log"].splitlines()[:1000]).replace(" ", "").replace("\n", "")
+            assert "\n".join(lines).replace(" ", "").replace("\n", "") == "".join(
+                golden.out["out_log"].splitlines()[:1000]
+            ).replace(" ", "").replace("\n", "")
         else:
-            assert caplog.text.replace(" ", "").replace("\n", "") == golden.out["out_log"].replace(" ", "").replace("\n", "")
+            assert caplog.text.replace(" ", "").replace("\n", "") == golden.out[
+                "out_log"
+            ].replace(" ", "").replace("\n", "")
 
 
 def read_code_from_file(file_path):
@@ -46,9 +57,7 @@ def run_pipeline(file_path, input_str=" "):
     translator = SwagLangTranslator()
     translated = translator.translate_code(code)
 
-    input_data = {
-        0: list(input_str + chr(0))
-    }
+    input_data = {0: list(input_str + chr(0))}
 
     input_device = InputDevice(input_data)
     output_device = OutputDevice()
@@ -59,7 +68,7 @@ def run_pipeline(file_path, input_str=" "):
 
     instructions = []
     for i in range(len(translated) // 51):
-        instr = translated[i * 51:(i + 1) * 51]
+        instr = translated[i * 51 : (i + 1) * 51]
         instructions.append(instr)
 
     control_unit.run(clock, instructions)
@@ -68,4 +77,4 @@ def run_pipeline(file_path, input_str=" "):
     for port, data in output_device.buffer.items():
         output[port] = "".join(data)
 
-    return output[2],translated
+    return output[2], translated
