@@ -30,6 +30,7 @@ def test_translator_pipeline(golden, caplog):
             lines = caplog.text.splitlines()[:1000]
             assert "\n".join(lines) == golden.out["out_log"]
         else:
+            print(caplog.text)
             assert caplog.text == golden.out["out_log"]
 
 
