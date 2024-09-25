@@ -36,3 +36,410 @@ out_code: |-
 out_stdout: |-
   hello
 out_log: |
+  DEBUG | Tick=1 | STAGE=FETCH | OP=inputchar | PC=0 | R1=0 | R2=0 | R3=0 |  data={}
+  DEBUG | Tick=2 | STAGE=DECODE | OP=inputchar | PC=0 | R1=0 | R2=0 | R3=0 |  data={}
+  DEBUG | Tick=3 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=0 | R2=0 | R3=0 |  data={}
+  DEBUG | Tick=4 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=0 | R2=0 | R3=0 |  data={}
+  DEBUG | Tick=5 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=0 | R2=0 | R3=0 |  data={}
+  DEBUG | Tick=6 | STAGE=FETCH | OP=store_to | PC=1 | R1=0 | R2=104 | R3=0 |  data={}
+  DEBUG | Tick=7 | STAGE=DECODE | OP=store_to | PC=1 | R1=0 | R2=104 | R3=0 |  data={}
+  DEBUG | Tick=8 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=0 | R2=104 | R3=0 |  data={}
+  DEBUG | Tick=9 | STAGE=MEMORY | OP=store_to | PC=1 | R1=0 | R2=104 | R3=0 |  data={}
+  DEBUG | Tick=10 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=11 | STAGE=FETCH | OP=cmp | PC=2 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=12 | STAGE=DECODE | OP=cmp | PC=2 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=13 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=14 | STAGE=MEMORY | OP=cmp | PC=2 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=15 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=16 | STAGE=FETCH | OP=je | PC=3 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=17 | STAGE=DECODE | OP=je | PC=3 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=18 | STAGE=EXECUTE | OP=je | PC=3 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=19 | STAGE=MEMORY | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=20 | STAGE=WRITEBACK | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=21 | STAGE=FETCH | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=22 | STAGE=DECODE | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=23 | STAGE=EXECUTE | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=24 | STAGE=MEMORY | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=25 | STAGE=WRITEBACK | OP=load | PC=4 | R1=0 | R2=104 | R3=0 |  data={0: 104}
+  DEBUG | Tick=26 | STAGE=FETCH | OP=add | PC=5 | R1=0 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=27 | STAGE=DECODE | OP=add | PC=5 | R1=0 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=28 | STAGE=EXECUTE | OP=add | PC=5 | R1=0 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=29 | STAGE=MEMORY | OP=add | PC=5 | R1=0 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=30 | STAGE=WRITEBACK | OP=add | PC=5 | R1=0 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=31 | STAGE=FETCH | OP=jmp | PC=6 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=32 | STAGE=DECODE | OP=jmp | PC=6 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=33 | STAGE=EXECUTE | OP=jmp | PC=6 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=34 | STAGE=FETCH | OP=inputchar | PC=0 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=35 | STAGE=DECODE | OP=inputchar | PC=0 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=36 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=37 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=38 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=1 | R2=1 | R3=0 |  data={0: 104}
+  DEBUG | Tick=39 | STAGE=FETCH | OP=store_to | PC=1 | R1=1 | R2=101 | R3=0 |  data={0: 104}
+  DEBUG | Tick=40 | STAGE=DECODE | OP=store_to | PC=1 | R1=1 | R2=101 | R3=0 |  data={0: 104}
+  DEBUG | Tick=41 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=1 | R2=101 | R3=0 |  data={0: 104}
+  DEBUG | Tick=42 | STAGE=MEMORY | OP=store_to | PC=1 | R1=1 | R2=101 | R3=0 |  data={0: 104}
+  DEBUG | Tick=43 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=44 | STAGE=FETCH | OP=cmp | PC=2 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=45 | STAGE=DECODE | OP=cmp | PC=2 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=46 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=47 | STAGE=MEMORY | OP=cmp | PC=2 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=48 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=49 | STAGE=FETCH | OP=je | PC=3 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=50 | STAGE=DECODE | OP=je | PC=3 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=51 | STAGE=EXECUTE | OP=je | PC=3 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=52 | STAGE=MEMORY | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=53 | STAGE=WRITEBACK | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=54 | STAGE=FETCH | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=55 | STAGE=DECODE | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=56 | STAGE=EXECUTE | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=57 | STAGE=MEMORY | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=58 | STAGE=WRITEBACK | OP=load | PC=4 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=59 | STAGE=FETCH | OP=add | PC=5 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=60 | STAGE=DECODE | OP=add | PC=5 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=61 | STAGE=EXECUTE | OP=add | PC=5 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=62 | STAGE=MEMORY | OP=add | PC=5 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=63 | STAGE=WRITEBACK | OP=add | PC=5 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=64 | STAGE=FETCH | OP=jmp | PC=6 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=65 | STAGE=DECODE | OP=jmp | PC=6 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=66 | STAGE=EXECUTE | OP=jmp | PC=6 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=67 | STAGE=FETCH | OP=inputchar | PC=0 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=68 | STAGE=DECODE | OP=inputchar | PC=0 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=69 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=70 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=71 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=72 | STAGE=FETCH | OP=store_to | PC=1 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=73 | STAGE=DECODE | OP=store_to | PC=1 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=74 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=75 | STAGE=MEMORY | OP=store_to | PC=1 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101}
+  DEBUG | Tick=76 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=77 | STAGE=FETCH | OP=cmp | PC=2 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=78 | STAGE=DECODE | OP=cmp | PC=2 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=79 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=80 | STAGE=MEMORY | OP=cmp | PC=2 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=81 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=82 | STAGE=FETCH | OP=je | PC=3 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=83 | STAGE=DECODE | OP=je | PC=3 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=84 | STAGE=EXECUTE | OP=je | PC=3 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=85 | STAGE=MEMORY | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=86 | STAGE=WRITEBACK | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=87 | STAGE=FETCH | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=88 | STAGE=DECODE | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=89 | STAGE=EXECUTE | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=90 | STAGE=MEMORY | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=91 | STAGE=WRITEBACK | OP=load | PC=4 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=92 | STAGE=FETCH | OP=add | PC=5 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=93 | STAGE=DECODE | OP=add | PC=5 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=94 | STAGE=EXECUTE | OP=add | PC=5 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=95 | STAGE=MEMORY | OP=add | PC=5 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=96 | STAGE=WRITEBACK | OP=add | PC=5 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=97 | STAGE=FETCH | OP=jmp | PC=6 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=98 | STAGE=DECODE | OP=jmp | PC=6 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=99 | STAGE=EXECUTE | OP=jmp | PC=6 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=100 | STAGE=FETCH | OP=inputchar | PC=0 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=101 | STAGE=DECODE | OP=inputchar | PC=0 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=102 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=103 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=104 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=105 | STAGE=FETCH | OP=store_to | PC=1 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=106 | STAGE=DECODE | OP=store_to | PC=1 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=107 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=108 | STAGE=MEMORY | OP=store_to | PC=1 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108}
+  DEBUG | Tick=109 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=110 | STAGE=FETCH | OP=cmp | PC=2 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=111 | STAGE=DECODE | OP=cmp | PC=2 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=112 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=113 | STAGE=MEMORY | OP=cmp | PC=2 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=114 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=115 | STAGE=FETCH | OP=je | PC=3 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=116 | STAGE=DECODE | OP=je | PC=3 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=117 | STAGE=EXECUTE | OP=je | PC=3 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=118 | STAGE=MEMORY | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=119 | STAGE=WRITEBACK | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=120 | STAGE=FETCH | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=121 | STAGE=DECODE | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=122 | STAGE=EXECUTE | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=123 | STAGE=MEMORY | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=124 | STAGE=WRITEBACK | OP=load | PC=4 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=125 | STAGE=FETCH | OP=add | PC=5 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=126 | STAGE=DECODE | OP=add | PC=5 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=127 | STAGE=EXECUTE | OP=add | PC=5 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=128 | STAGE=MEMORY | OP=add | PC=5 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=129 | STAGE=WRITEBACK | OP=add | PC=5 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=130 | STAGE=FETCH | OP=jmp | PC=6 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=131 | STAGE=DECODE | OP=jmp | PC=6 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=132 | STAGE=EXECUTE | OP=jmp | PC=6 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=133 | STAGE=FETCH | OP=inputchar | PC=0 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=134 | STAGE=DECODE | OP=inputchar | PC=0 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=135 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=136 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=137 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=138 | STAGE=FETCH | OP=store_to | PC=1 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=139 | STAGE=DECODE | OP=store_to | PC=1 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=140 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=141 | STAGE=MEMORY | OP=store_to | PC=1 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108}
+  DEBUG | Tick=142 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=143 | STAGE=FETCH | OP=cmp | PC=2 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=144 | STAGE=DECODE | OP=cmp | PC=2 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=145 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=146 | STAGE=MEMORY | OP=cmp | PC=2 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=147 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=148 | STAGE=FETCH | OP=je | PC=3 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=149 | STAGE=DECODE | OP=je | PC=3 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=150 | STAGE=EXECUTE | OP=je | PC=3 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=151 | STAGE=MEMORY | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=152 | STAGE=WRITEBACK | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=153 | STAGE=FETCH | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=154 | STAGE=DECODE | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=155 | STAGE=EXECUTE | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=156 | STAGE=MEMORY | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=157 | STAGE=WRITEBACK | OP=load | PC=4 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=158 | STAGE=FETCH | OP=add | PC=5 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=159 | STAGE=DECODE | OP=add | PC=5 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=160 | STAGE=EXECUTE | OP=add | PC=5 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=161 | STAGE=MEMORY | OP=add | PC=5 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=162 | STAGE=WRITEBACK | OP=add | PC=5 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=163 | STAGE=FETCH | OP=jmp | PC=6 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=164 | STAGE=DECODE | OP=jmp | PC=6 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=165 | STAGE=EXECUTE | OP=jmp | PC=6 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=166 | STAGE=FETCH | OP=inputchar | PC=0 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=167 | STAGE=DECODE | OP=inputchar | PC=0 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=168 | STAGE=EXECUTE | OP=inputchar | PC=0 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=169 | STAGE=MEMORY | OP=inputchar | PC=0 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=170 | STAGE=WRITEBACK | OP=inputchar | PC=0 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=171 | STAGE=FETCH | OP=store_to | PC=1 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=172 | STAGE=DECODE | OP=store_to | PC=1 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=173 | STAGE=EXECUTE | OP=store_to | PC=1 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=174 | STAGE=MEMORY | OP=store_to | PC=1 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111}
+  DEBUG | Tick=175 | STAGE=WRITEBACK | OP=store_to | PC=1 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=176 | STAGE=FETCH | OP=cmp | PC=2 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=177 | STAGE=DECODE | OP=cmp | PC=2 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=178 | STAGE=EXECUTE | OP=cmp | PC=2 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=179 | STAGE=MEMORY | OP=cmp | PC=2 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=180 | STAGE=WRITEBACK | OP=cmp | PC=2 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=181 | STAGE=FETCH | OP=je | PC=3 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=182 | STAGE=DECODE | OP=je | PC=3 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=183 | STAGE=EXECUTE | OP=je | PC=3 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=184 | STAGE=FETCH | OP=load | PC=7 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=185 | STAGE=DECODE | OP=load | PC=7 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=186 | STAGE=EXECUTE | OP=load | PC=7 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=187 | STAGE=MEMORY | OP=load | PC=7 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=188 | STAGE=WRITEBACK | OP=load | PC=7 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=189 | STAGE=FETCH | OP=jmp | PC=8 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=190 | STAGE=DECODE | OP=jmp | PC=8 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=191 | STAGE=EXECUTE | OP=jmp | PC=8 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=192 | STAGE=FETCH | OP=load_from | PC=9 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=193 | STAGE=DECODE | OP=load_from | PC=9 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=194 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=195 | STAGE=MEMORY | OP=load_from | PC=9 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=196 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=0 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=197 | STAGE=FETCH | OP=outputchar | PC=10 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=198 | STAGE=DECODE | OP=outputchar | PC=10 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=199 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=200 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=201 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=202 | STAGE=FETCH | OP=load | PC=11 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=203 | STAGE=DECODE | OP=load | PC=11 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=204 | STAGE=EXECUTE | OP=load | PC=11 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=205 | STAGE=MEMORY | OP=load | PC=11 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=206 | STAGE=WRITEBACK | OP=load | PC=11 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=207 | STAGE=FETCH | OP=cmp | PC=12 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=208 | STAGE=DECODE | OP=cmp | PC=12 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=209 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=210 | STAGE=MEMORY | OP=cmp | PC=12 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=211 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=212 | STAGE=FETCH | OP=je | PC=13 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=213 | STAGE=DECODE | OP=je | PC=13 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=214 | STAGE=EXECUTE | OP=je | PC=13 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=215 | STAGE=MEMORY | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=216 | STAGE=WRITEBACK | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=217 | STAGE=FETCH | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=218 | STAGE=DECODE | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=219 | STAGE=EXECUTE | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=220 | STAGE=MEMORY | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=221 | STAGE=WRITEBACK | OP=load | PC=14 | R1=0 | R2=104 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=222 | STAGE=FETCH | OP=add | PC=15 | R1=0 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=223 | STAGE=DECODE | OP=add | PC=15 | R1=0 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=224 | STAGE=EXECUTE | OP=add | PC=15 | R1=0 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=225 | STAGE=MEMORY | OP=add | PC=15 | R1=0 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=226 | STAGE=WRITEBACK | OP=add | PC=15 | R1=0 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=227 | STAGE=FETCH | OP=jmp | PC=16 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=228 | STAGE=DECODE | OP=jmp | PC=16 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=229 | STAGE=EXECUTE | OP=jmp | PC=16 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=230 | STAGE=FETCH | OP=load_from | PC=9 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=231 | STAGE=DECODE | OP=load_from | PC=9 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=232 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=233 | STAGE=MEMORY | OP=load_from | PC=9 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=234 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=235 | STAGE=FETCH | OP=outputchar | PC=10 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=236 | STAGE=DECODE | OP=outputchar | PC=10 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=237 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=238 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=239 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=240 | STAGE=FETCH | OP=load | PC=11 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=241 | STAGE=DECODE | OP=load | PC=11 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=242 | STAGE=EXECUTE | OP=load | PC=11 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=243 | STAGE=MEMORY | OP=load | PC=11 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=244 | STAGE=WRITEBACK | OP=load | PC=11 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=245 | STAGE=FETCH | OP=cmp | PC=12 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=246 | STAGE=DECODE | OP=cmp | PC=12 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=247 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=248 | STAGE=MEMORY | OP=cmp | PC=12 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=249 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=250 | STAGE=FETCH | OP=je | PC=13 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=251 | STAGE=DECODE | OP=je | PC=13 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=252 | STAGE=EXECUTE | OP=je | PC=13 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=253 | STAGE=MEMORY | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=254 | STAGE=WRITEBACK | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=255 | STAGE=FETCH | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=256 | STAGE=DECODE | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=257 | STAGE=EXECUTE | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=258 | STAGE=MEMORY | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=259 | STAGE=WRITEBACK | OP=load | PC=14 | R1=1 | R2=101 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=260 | STAGE=FETCH | OP=add | PC=15 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=261 | STAGE=DECODE | OP=add | PC=15 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=262 | STAGE=EXECUTE | OP=add | PC=15 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=263 | STAGE=MEMORY | OP=add | PC=15 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=264 | STAGE=WRITEBACK | OP=add | PC=15 | R1=1 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=265 | STAGE=FETCH | OP=jmp | PC=16 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=266 | STAGE=DECODE | OP=jmp | PC=16 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=267 | STAGE=EXECUTE | OP=jmp | PC=16 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=268 | STAGE=FETCH | OP=load_from | PC=9 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=269 | STAGE=DECODE | OP=load_from | PC=9 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=270 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=271 | STAGE=MEMORY | OP=load_from | PC=9 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=272 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=273 | STAGE=FETCH | OP=outputchar | PC=10 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=274 | STAGE=DECODE | OP=outputchar | PC=10 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=275 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=276 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=277 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=278 | STAGE=FETCH | OP=load | PC=11 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=279 | STAGE=DECODE | OP=load | PC=11 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=280 | STAGE=EXECUTE | OP=load | PC=11 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=281 | STAGE=MEMORY | OP=load | PC=11 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=282 | STAGE=WRITEBACK | OP=load | PC=11 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=283 | STAGE=FETCH | OP=cmp | PC=12 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=284 | STAGE=DECODE | OP=cmp | PC=12 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=285 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=286 | STAGE=MEMORY | OP=cmp | PC=12 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=287 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=288 | STAGE=FETCH | OP=je | PC=13 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=289 | STAGE=DECODE | OP=je | PC=13 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=290 | STAGE=EXECUTE | OP=je | PC=13 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=291 | STAGE=MEMORY | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=292 | STAGE=WRITEBACK | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=293 | STAGE=FETCH | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=294 | STAGE=DECODE | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=295 | STAGE=EXECUTE | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=296 | STAGE=MEMORY | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=297 | STAGE=WRITEBACK | OP=load | PC=14 | R1=2 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=298 | STAGE=FETCH | OP=add | PC=15 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=299 | STAGE=DECODE | OP=add | PC=15 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=300 | STAGE=EXECUTE | OP=add | PC=15 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=301 | STAGE=MEMORY | OP=add | PC=15 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=302 | STAGE=WRITEBACK | OP=add | PC=15 | R1=2 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=303 | STAGE=FETCH | OP=jmp | PC=16 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=304 | STAGE=DECODE | OP=jmp | PC=16 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=305 | STAGE=EXECUTE | OP=jmp | PC=16 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=306 | STAGE=FETCH | OP=load_from | PC=9 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=307 | STAGE=DECODE | OP=load_from | PC=9 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=308 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=309 | STAGE=MEMORY | OP=load_from | PC=9 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=310 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=311 | STAGE=FETCH | OP=outputchar | PC=10 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=312 | STAGE=DECODE | OP=outputchar | PC=10 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=313 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=314 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=315 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=316 | STAGE=FETCH | OP=load | PC=11 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=317 | STAGE=DECODE | OP=load | PC=11 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=318 | STAGE=EXECUTE | OP=load | PC=11 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=319 | STAGE=MEMORY | OP=load | PC=11 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=320 | STAGE=WRITEBACK | OP=load | PC=11 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=321 | STAGE=FETCH | OP=cmp | PC=12 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=322 | STAGE=DECODE | OP=cmp | PC=12 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=323 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=324 | STAGE=MEMORY | OP=cmp | PC=12 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=325 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=326 | STAGE=FETCH | OP=je | PC=13 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=327 | STAGE=DECODE | OP=je | PC=13 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=328 | STAGE=EXECUTE | OP=je | PC=13 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=329 | STAGE=MEMORY | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=330 | STAGE=WRITEBACK | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=331 | STAGE=FETCH | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=332 | STAGE=DECODE | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=333 | STAGE=EXECUTE | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=334 | STAGE=MEMORY | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=335 | STAGE=WRITEBACK | OP=load | PC=14 | R1=3 | R2=108 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=336 | STAGE=FETCH | OP=add | PC=15 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=337 | STAGE=DECODE | OP=add | PC=15 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=338 | STAGE=EXECUTE | OP=add | PC=15 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=339 | STAGE=MEMORY | OP=add | PC=15 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=340 | STAGE=WRITEBACK | OP=add | PC=15 | R1=3 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=341 | STAGE=FETCH | OP=jmp | PC=16 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=342 | STAGE=DECODE | OP=jmp | PC=16 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=343 | STAGE=EXECUTE | OP=jmp | PC=16 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=344 | STAGE=FETCH | OP=load_from | PC=9 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=345 | STAGE=DECODE | OP=load_from | PC=9 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=346 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=347 | STAGE=MEMORY | OP=load_from | PC=9 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=348 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=349 | STAGE=FETCH | OP=outputchar | PC=10 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=350 | STAGE=DECODE | OP=outputchar | PC=10 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=351 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=352 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=353 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=354 | STAGE=FETCH | OP=load | PC=11 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=355 | STAGE=DECODE | OP=load | PC=11 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=356 | STAGE=EXECUTE | OP=load | PC=11 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=357 | STAGE=MEMORY | OP=load | PC=11 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=358 | STAGE=WRITEBACK | OP=load | PC=11 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=359 | STAGE=FETCH | OP=cmp | PC=12 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=360 | STAGE=DECODE | OP=cmp | PC=12 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=361 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=362 | STAGE=MEMORY | OP=cmp | PC=12 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=363 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=364 | STAGE=FETCH | OP=je | PC=13 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=365 | STAGE=DECODE | OP=je | PC=13 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=366 | STAGE=EXECUTE | OP=je | PC=13 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=367 | STAGE=MEMORY | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=368 | STAGE=WRITEBACK | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=369 | STAGE=FETCH | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=370 | STAGE=DECODE | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=371 | STAGE=EXECUTE | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=372 | STAGE=MEMORY | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=373 | STAGE=WRITEBACK | OP=load | PC=14 | R1=4 | R2=111 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=374 | STAGE=FETCH | OP=add | PC=15 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=375 | STAGE=DECODE | OP=add | PC=15 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=376 | STAGE=EXECUTE | OP=add | PC=15 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=377 | STAGE=MEMORY | OP=add | PC=15 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=378 | STAGE=WRITEBACK | OP=add | PC=15 | R1=4 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=379 | STAGE=FETCH | OP=jmp | PC=16 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=380 | STAGE=DECODE | OP=jmp | PC=16 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=381 | STAGE=EXECUTE | OP=jmp | PC=16 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=382 | STAGE=FETCH | OP=load_from | PC=9 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=383 | STAGE=DECODE | OP=load_from | PC=9 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=384 | STAGE=EXECUTE | OP=load_from | PC=9 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=385 | STAGE=MEMORY | OP=load_from | PC=9 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=386 | STAGE=WRITEBACK | OP=load_from | PC=9 | R1=5 | R2=1 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=387 | STAGE=FETCH | OP=outputchar | PC=10 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=388 | STAGE=DECODE | OP=outputchar | PC=10 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=389 | STAGE=EXECUTE | OP=outputchar | PC=10 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=390 | STAGE=MEMORY | OP=outputchar | PC=10 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=391 | STAGE=WRITEBACK | OP=outputchar | PC=10 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=392 | STAGE=FETCH | OP=load | PC=11 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=393 | STAGE=DECODE | OP=load | PC=11 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=394 | STAGE=EXECUTE | OP=load | PC=11 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=395 | STAGE=MEMORY | OP=load | PC=11 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=396 | STAGE=WRITEBACK | OP=load | PC=11 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=397 | STAGE=FETCH | OP=cmp | PC=12 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=398 | STAGE=DECODE | OP=cmp | PC=12 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=399 | STAGE=EXECUTE | OP=cmp | PC=12 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=400 | STAGE=MEMORY | OP=cmp | PC=12 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=401 | STAGE=WRITEBACK | OP=cmp | PC=12 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=402 | STAGE=FETCH | OP=je | PC=13 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=403 | STAGE=DECODE | OP=je | PC=13 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=404 | STAGE=EXECUTE | OP=je | PC=13 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=405 | STAGE=FETCH | OP=stop | PC=17 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=406 | STAGE=DECODE | OP=stop | PC=17 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
+  DEBUG | Tick=407 | STAGE=EXECUTE | OP=stop | PC=17 | R1=5 | R2=0 | R3=0 |  data={0: 104, 1: 101, 2: 108, 3: 108, 4: 111, 5: 0}
