@@ -29,17 +29,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.11'
-    - name: Install Poetry
-      run: |
-        python -m pip install --upgrade pip
-        pip install poetry
-    - name: Install dependencies
-      run: |
-        poetry install
     - name: Run tests
       run: |
         python pipeline.py ./SwagLangPrograms/prob2.sl 90
