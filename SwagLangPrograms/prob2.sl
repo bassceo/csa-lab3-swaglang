@@ -7,6 +7,9 @@ data: {
 }
 
 run: {
+    input[R1, 0];
+    store[R1, max];
+    
     loop:{
         jmp[check_a_and_sum];
     }
@@ -17,8 +20,7 @@ run: {
         load[R2, max];
         load[R2, (R2)];
         sub[R2,R1];
-        isneg[R2];
-        je[end];
+        jn[end];
         load[R2, 2];
         mod[R1,R2];
         load[R2, 0];
@@ -43,8 +45,7 @@ run: {
         load[R2, max];
         load[R2, (R2)];
         sub[R2,R1];
-        isneg[R2];
-        je[end];
+        jn[end];
         load[R2, 2];
         mod[R1,R2];
         load[R2, 0];

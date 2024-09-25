@@ -1,4 +1,5 @@
-from processor.Decoder import Decoder
+from processor.Decoder import Decoder, OPCODES
+import logging
 
 class ControlUnit:
     def __init__(self, datapath):
@@ -13,7 +14,6 @@ class ControlUnit:
     def fetch_instruction(self, instruction_memory):
         if self.pc < len(instruction_memory):
             self.current_instruction = instruction_memory[self.pc]
-            print(f"[ControlUnit] Fetch: '{self.current_instruction}', PC: {self.pc}")
         else:
             self.halted = True
             self.current_instruction = None
@@ -60,24 +60,33 @@ class ControlUnit:
         branch = self.control_signals['branch']
         addr = self.control_signals['address']
         if branch == 'jmp':
-            print(f"[ControlUnit] Безусловный переход на адрес {addr}")
             self.pc = addr
+            self.instruction_stage = 'FETCH'
         elif branch == 'je':
             if self.datapath.get_zero_flag():
-                print(f"[ControlUnit] Переход при равенстве на адрес {addr}")
                 self.pc = addr
+                self.instruction_stage = 'FETCH'
             else:
                 self.pc += 1
-        elif branch == 'jne':
-            if not self.datapath.get_zero_flag():
-                print(f"[ControlUnit] Переход при неравенстве на адрес {addr}")
+        elif branch == 'jn':
+            if self.datapath.get_negative_flag():
                 self.pc = addr
+                self.instruction_stage = 'FETCH'
             else:
                 self.pc += 1
-
+    
+    def log(self, tick,instruction_memory):
+        op = ""
+        for i in OPCODES:
+            if(OPCODES[i]==instruction_memory[self.pc][:5]):
+                op=i
+        logging.debug(f" Tick={tick} | STAGE={self.instruction_stage} | OP={op} | PC={self.pc} | R1={self.datapath.registers['R1']} | R2={self.datapath.registers['R2']} | R3={self.datapath.registers['R3']} |  data={self.datapath.memory}")
+    
     def run(self, clock, instruction_memory):
         while not self.halted:
-            clock.tick()
+            tick = clock.tick()
+            self.log(tick,instruction_memory)
+
             if self.instruction_stage == 'FETCH':
                 self.fetch_instruction(instruction_memory)
                 self.instruction_stage = 'DECODE'
@@ -86,7 +95,8 @@ class ControlUnit:
                 self.instruction_stage = 'EXECUTE'
             elif self.instruction_stage == 'EXECUTE':
                 self.execute_instruction()
-                self.instruction_stage = 'MEMORY'
+                if not self.instruction_stage == "FETCH":
+                    self.instruction_stage = 'MEMORY'
             elif self.instruction_stage == 'MEMORY':
                 self.memory_access()
                 self.instruction_stage = 'WRITEBACK'
@@ -98,6 +108,5 @@ class ControlUnit:
                 raise Exception(f"[Error] Неизвестный этап инструкции: {self.instruction_stage}")
 
     def print_state(self):
-        print(f"[State] PC: {self.pc}")
-        print(f"[State] Регистры: {self.datapath.registers}")
-        print(f"[State] Флаг нуля: {self.datapath.get_zero_flag()}")
+        logging.getLogger().setLevel(logging.DEBUG)
+        pass

@@ -2,11 +2,19 @@ class InputDevice:
     def __init__(self, data):
         self.buffer = data 
 
-    def read(self, port):
+    def read(self, port, type):
         if port in self.buffer and self.buffer[port]:
+            
+            if type=='number':
+                tmp = ''
+                word = ''
+                while(True):
+                    tmp = self.buffer[port].pop(0)
+                    if tmp==chr(0):
+                        break
+                    word+=tmp
+                return int(word)
             data = self.buffer[port].pop(0)
-            print(f"[InputDevice] Чтение данных с порта {port}: '{data}'")
             return data
         else:
-            print(f"[InputDevice] Буфер ввода порта {port} пуст.")
             return None 

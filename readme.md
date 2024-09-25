@@ -1,7 +1,7 @@
 # Лабораторная работа №3. Эксперимент
 
 - **Лукьянчук Ярослав Евгеньевич P3223**
-- **Темы:** asm, risc, harv, mc, instr, binary, stream, port, cstr, prob2
+- **Вариант:** asm, risc, harv, mc, instr, binary, stream, port, cstr, prob2
 
 ---
 

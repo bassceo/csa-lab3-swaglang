@@ -10,7 +10,7 @@ class SwagLangTranslator:
         'cmp': '00110',
         'jmp': '00111',
         'je': '01000',
-        'isneg': '01001',
+        'jn': '01001',
         'input': '01010',
         'output': '01011',
         'inputchar': '01100',
@@ -161,7 +161,7 @@ class SwagLangTranslator:
 
         binary = self.OPCODES[op].zfill(5)
 
-        if op in ['jmp', 'je', 'jne']:
+        if op in ['jmp', 'je', 'jn']:
             addr = args[0]
             addr_bin = f"{int(self.marks[addr]):023b}" 
             return binary + ('0'*23) + addr_bin 
@@ -179,7 +179,7 @@ class SwagLangTranslator:
                 val_bin = self.REGISTERS[val].zfill(23) 
                 return binary + reg_bin + val_bin
             
-            elif type(val)==int:
+            elif type(val) is int:
                 val_bin = self.format_immediate(val, 23)
                 return binary + reg_bin + val_bin
             
@@ -200,7 +200,7 @@ class SwagLangTranslator:
         data = self.code_tree['data']
         for x in data:
             self.data_section[list(x.keys())[0]] = self.current_address
-            if type(x[list(x.keys())[0]])==int:
+            if type(x[list(x.keys())[0]]) is int:
                 binary += self.translate_command({"load":['R1', int(x[list(x.keys())[0]])]})+"\n"+self.translate_command({"store": ['R1', self.current_address]})+"\n"
             else:
                 string_value = x[list(x.keys())[0]]+chr(0)

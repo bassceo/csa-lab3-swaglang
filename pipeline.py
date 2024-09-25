@@ -17,6 +17,7 @@ def run_pipeline(file_path, input_str=' '):
     
     translator = SwagLangTranslator()
     translated = translator.translate_code(code)
+
     
     input_data = {
         0: list(input_str + chr(0))
@@ -33,9 +34,6 @@ def run_pipeline(file_path, input_str=' '):
     for i in range(len(translated) // 51):
         instr = translated[i*51:(i+1)*51]
         instructions.append(instr)
-        for j in OPCODES:
-            if OPCODES[j] == instr[:5]:
-                print(j)
     
     control_unit.run(clock, instructions)
     
