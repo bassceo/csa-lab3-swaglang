@@ -4,6 +4,8 @@ import logging
 class ControlUnit:
     def __init__(self, datapath):
         self.pc = 0
+        self.logger = logging.getLogger(__name__)
+        logging.basicConfig(filename='main.log', encoding='utf-8', level=logging.DEBUG)
         self.datapath = datapath
         self.halted = False
         self.decoder = Decoder()
@@ -80,9 +82,10 @@ class ControlUnit:
         for i in OPCODES:
             if(OPCODES[i]==instruction_memory[self.pc][:5]):
                 op=i
-        logging.debug(f" Tick={tick} | STAGE={self.instruction_stage} | OP={op} | PC={self.pc} | R1={self.datapath.registers['R1']} | R2={self.datapath.registers['R2']} | R3={self.datapath.registers['R3']} |  data={self.datapath.memory}")
+        self.logger.debug(f" Tick={tick} | STAGE={self.instruction_stage} | OP={op} | PC={self.pc} | R1={self.datapath.registers['R1']} | R2={self.datapath.registers['R2']} | R3={self.datapath.registers['R3']} |  data={self.datapath.memory}")
     
     def run(self, clock, instruction_memory):
+        self.print_state()
         while not self.halted:
             tick = clock.tick()
             self.log(tick,instruction_memory)
@@ -102,10 +105,9 @@ class ControlUnit:
             elif self.instruction_stage == 'WRITEBACK':
                 self.write_back()
                 self.instruction_stage = 'FETCH'
-                self.print_state()
             else:
                 raise Exception(f"[Error] Неизвестный этап инструкции: {self.instruction_stage}")
 
     def print_state(self):
-        logging.getLogger().setLevel(logging.DEBUG)
+        # logging.getLogger().setLevel(logging.DEBUG)
         pass
