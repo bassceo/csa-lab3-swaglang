@@ -5,7 +5,6 @@ from processor.InputDevice import InputDevice
 from processor.OutputDevice import OutputDevice
 from processor.DataPath import Datapath
 from processor.Clock import Clock
-from processor.Decoder import OPCODES
 
 def read_code_from_file(file_path):
     with open(file_path, 'r') as file:
