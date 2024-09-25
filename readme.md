@@ -82,13 +82,13 @@
 
 ### Ввод и вывод данных
 
-- `input[reg, !stream]`
-- `output[reg, !stream]`
+- `input[reg, stream]`
+- `output[reg, stream]`
 
 ### Работа с символами
 
-- `inputchar[reg, !stream]`
-- `outputchar[reg, !stream]`
+- `inputchar[reg, stream]`
+- `outputchar[reg, stream]`
 
 ### Переходы и метки
 
@@ -119,7 +119,7 @@
 ```asm
 run {
     load[R1, 0];
-    input[R2, !INPUT];
+    input[R2, 0];
 
     loop_start: {
         cmp[R2, 0];
@@ -130,7 +130,7 @@ run {
     };
 
     exit_loop: {
-        output[R1, !OUTPUT];
+        output[R1, 1];
     };
 }
 ```
@@ -172,7 +172,7 @@ data {
 - **Переменные:** В секции данных.
 
 ```asm
-input[R2, !INPUT];
+input[R2, stream];
 loop_start: { ... }
 load[R1, myVar];
 ```
