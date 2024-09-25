@@ -23,10 +23,8 @@ def test_translator_pipeline(golden, caplog):
             file.write(golden["in_source"])
 
         output = run_pipeline(source, input_data)
-
-        output_combined = "\n".join([f"Порт {port}: {data}" for port, data in output.items()])
         
-        assert output_combined == golden.out["out_stdout"]
+        assert output == golden.out["out_stdout"]
         
         if len(caplog.text) >= 124000:
             lines = caplog.text.splitlines()[:1000]
@@ -69,4 +67,4 @@ def run_pipeline(file_path, input_str=' '):
     for port, data in output_device.buffer.items():
         output[port] = ''.join(data)
     
-    return output
+    return output[2]

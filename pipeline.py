@@ -29,6 +29,7 @@ def run_pipeline(file_path, input_str=' '):
     datapath = Datapath(input_device, output_device)
     control_unit = ControlUnit(datapath)
     
+    print (translated)
     instructions = []
     for i in range(len(translated) // 51):
         instr = translated[i*51:(i+1)*51]

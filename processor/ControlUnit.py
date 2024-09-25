@@ -86,7 +86,6 @@ class ControlUnit:
         while not self.halted:
             tick = clock.tick()
             self.log(tick,instruction_memory)
-
             if self.instruction_stage == 'FETCH':
                 self.fetch_instruction(instruction_memory)
                 self.instruction_stage = 'DECODE'
