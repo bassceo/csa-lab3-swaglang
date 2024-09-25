@@ -22,9 +22,10 @@ def test_translator_pipeline(golden, caplog):
         with open(source, "w", encoding="utf-8") as file:
             file.write(golden["in_source"])
 
-        output = run_pipeline(source, input_data)
+        output, translated = run_pipeline(source, input_data)
         
         assert output == (golden.out["out_stdout"]+chr(0))
+        assert translated.text.replace(" ", '').replace('\n', '') == (golden.out["out_code"].text.replace(" ", '').replace('\n', ''))
         
         if len(caplog.text) >= 124000:
             lines = caplog.text.splitlines()[:1000]
@@ -68,4 +69,4 @@ def run_pipeline(file_path, input_str=' '):
     for port, data in output_device.buffer.items():
         output[port] = ''.join(data)
     
-    return output[2]
+    return output[2],translated
