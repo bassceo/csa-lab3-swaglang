@@ -1,3 +1,5 @@
+from dataclasses import dataclass, field
+from typing import Optional, Dict, List, Callable
 
 REGISTERS = {
     'R1': '00000000000000000000001',
@@ -24,106 +26,273 @@ OPCODES = {
     'mod': '11111',
 }
 
+
+@dataclass
+class ControlSignals:
+    load_enable: bool = False
+    load_from_enable: bool = False
+    store_enable: bool = False
+    alu_enable: bool = False
+    alu_op: Optional[str] = None
+    read_enable: bool = False
+    write_enable: bool = False
+    jump: bool = False
+    branch: Optional[str] = None
+    halt: bool = False
+    reg_src: Optional[str] = None
+    reg_dest: Optional[str] = None
+    immediate: Optional[int] = None
+    address: Optional[int] = None
+    port: Optional[int] = None
+    input_type: Optional[str] = None
+    output_type: Optional[str] = None
+
+    def reset(self):
+        for field_name in self.__dataclass_fields__:
+            if field_name == 'halt':
+                continue  # Не сбрасываем сигнал halt
+            value = getattr(self, field_name)
+            if isinstance(value, bool):
+                setattr(self, field_name, False)
+            else:
+                setattr(self, field_name, None)
+
+
+MicroInstruction = Callable[['ControlSignals', Dict[str, str]], None]
+
+def micro_load_set_dest(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_dest = operands.get('reg_dest')
+
+def micro_load_set_immediate(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.immediate = int(operands.get('immediate', '0'), 2)
+
+def micro_load_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.load_enable = True
+
+def micro_load_from_set_dest(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_dest = operands.get('reg_dest')
+
+def micro_load_from_set_src(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src = operands.get('reg_src')
+
+def micro_load_from_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.load_from_enable = True
+
+def micro_store_set_src(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src = operands.get('reg_src')
+
+def micro_store_set_dest(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_dest = operands.get('reg_src')
+    control_signals.reg_src = operands.get('reg_dest')
+
+def micro_store_set_address(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.address = int(operands.get('address'),2)
+    
+
+def micro_store_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.store_enable = True
+
+def micro_store_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.store_enable = True
+
+def micro_add_sub_mod_set_dest(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_dest = operands.get('reg_dest')
+
+def micro_add_sub_mod_set_src(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src = operands.get('reg_src')
+
+def micro_add_sub_mod_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.alu_enable = True
+    control_signals.alu_op = operands.get('alu_op')
+
+def micro_cmp_set_src1(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src1 = operands.get('reg_src1')
+
+def micro_cmp_set_src2(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src2 = operands.get('reg_src2')
+
+def micro_cmp_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.alu_enable = True
+    control_signals.alu_op = 'cmp'
+
+def micro_jmp_set_address(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.address = int(operands.get('address', '0'), 2)
+
+def micro_jmp_set_branch(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.branch = operands.get('branch')
+
+def micro_jmp_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.jump = True
+
+def micro_input_set_dest(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_dest = operands.get('reg_dest')
+
+def micro_input_set_port(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.port = int(operands.get('port', '0'), 2)
+
+def micro_input_set_type(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.input_type = operands.get('input_type')
+
+def micro_input_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.read_enable = True
+
+def micro_output_set_src(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.reg_src = operands.get('reg_src')
+
+def micro_output_set_port(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.port = int(operands.get('port', '0'), 2)
+
+def micro_output_set_type(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.output_type = operands.get('output_type')
+
+def micro_output_enable(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.write_enable = True
+
+def micro_stop(control_signals: ControlSignals, operands: Dict[str, str]):
+    control_signals.halt = True
+
+MICROPROGRAM: Dict[str, List[MicroInstruction]] = {
+    'load': [
+        micro_load_set_dest,
+        micro_load_set_immediate,
+        micro_load_enable
+    ],
+    'load_from': [
+        micro_load_from_set_dest,
+        micro_load_from_set_src,
+        micro_load_from_enable
+    ],
+    'store': [
+        micro_store_set_src,
+        micro_store_set_address,
+        micro_store_enable
+    ],
+    'store_to': [
+        micro_store_set_dest,
+        micro_store_enable
+    ],
+    'add': [
+        micro_add_sub_mod_set_dest,
+        micro_add_sub_mod_set_src,
+        lambda cs, operands: micro_add_sub_mod_enable(cs, {**operands, 'alu_op': 'add'})
+    ],
+    'sub': [
+        micro_add_sub_mod_set_dest,
+        micro_add_sub_mod_set_src,
+        lambda cs, operands: micro_add_sub_mod_enable(cs, {**operands, 'alu_op': 'sub'})
+    ],
+    'mod': [
+        micro_add_sub_mod_set_dest,
+        micro_add_sub_mod_set_src,
+        lambda cs, operands: micro_add_sub_mod_enable(cs, {**operands, 'alu_op': 'mod'})
+    ],
+    'cmp': [
+        micro_cmp_set_src1,
+        micro_cmp_set_src2,
+        micro_cmp_enable
+    ],
+    'jmp': [
+        micro_jmp_set_address,
+        micro_jmp_set_branch,
+        micro_jmp_enable
+    ],
+    'je': [
+        micro_jmp_set_address,
+        micro_jmp_set_branch,
+        micro_jmp_enable
+    ],
+    'jn': [
+        micro_jmp_set_address,
+        micro_jmp_set_branch,
+        micro_jmp_enable
+    ],
+    'input': [
+        micro_input_set_dest,
+        micro_input_set_port,
+        lambda cs, operands: micro_input_set_type(cs, {'input_type': 'number'}),
+        micro_input_enable
+    ],
+    'inputchar': [
+        micro_input_set_dest,
+        micro_input_set_port,
+        lambda cs, operands: micro_input_set_type(cs, {'input_type': 'char'}),
+        micro_input_enable
+    ],
+    'output': [
+        micro_output_set_src,
+        micro_output_set_port,
+        lambda cs, operands: micro_output_set_type(cs, {'output_type': 'number'}),
+        micro_output_enable
+    ],
+    'outputchar': [
+        micro_output_set_src,
+        micro_output_set_port,
+        lambda cs, operands: micro_output_set_type(cs, {'output_type': 'char'}),
+        micro_output_enable
+    ],
+    'stop': [
+        micro_stop
+    ],
+}
+
 class Decoder:
     def __init__(self):
-        pass
+        self.control_signals = ControlSignals()
+        self.current_microprogram: List[MicroInstruction] = []
+        self.micro_step = 0
+        self.reg_bin_to_name = {v: k for k, v in REGISTERS.items()}
+        self.operands: Dict[str, str] = {}
 
-    def decode(self, instruction_str):
-        instruction = instruction_str 
-        opcode_bin = instruction[:5]
-        operand1_bin = instruction[5:28]
-        operand2_bin = instruction[28:51]
+    def reset_microcode(self):
+        self.control_signals.reset()
+        self.current_microprogram = []
+        self.micro_step = 0
+        self.operands = {}
+
+    def decode(self, instruction_str: str) -> Dict[str, Optional[str]]:
+        self.control_signals.reset()
+        opcode_bin = instruction_str[:5]
+        operand1_bin = instruction_str[5:28]
+        operand2_bin = instruction_str[28:51]
+        
         opcode_str = None
         for key, value in OPCODES.items():
             if value == opcode_bin:
                 opcode_str = key
                 break
-
+        
         if opcode_str is None:
             raise Exception(f"[Error] Неизвестный опкод: {opcode_bin}")
 
-        control_signals = {
-            'load_enable': False,
-            'load_from_enable': False,
-            'store_enable': False,
-            'alu_enable': False,
-            'alu_op': None,
-            'read_enable': False,
-            'write_enable': False,
-            'jump': False,
-            'branch': False,
-            'halt': False,
-            'reg_src': '',
-            'reg_dest': '',
-            'immediate': None,
-            'address': None,
-            'port': None,
-            'input_type': None,
-            'output_type': None
-        }
+        self.operands = {}
+        if opcode_str in ['load', 'load_from', 'store', 'store_to',
+                            'add', 'sub', 'mod', 'cmp',
+                            'jmp', 'je', 'jn',
+                            'input', 'inputchar', 'output', 'outputchar']:
+            self.operands['reg_dest'] = self.reg_bin_to_name.get(operand1_bin, None)
+            self.operands['reg_src'] = self.reg_bin_to_name.get(operand2_bin, None)
+            if opcode_str in ['store', 'outputchar', 'output', 'input', 'inputchar']:
+                self.operands['reg_src'] = self.reg_bin_to_name.get(operand1_bin, None)
+            self.operands['immediate'] = operand2_bin
+            self.operands['address'] = operand2_bin
+            self.operands['port'] = operand2_bin
+            self.operands['reg_src1'] = self.reg_bin_to_name.get(operand1_bin, None)
+            self.operands['reg_src2'] = self.reg_bin_to_name.get(operand2_bin, None)
+            self.operands['branch'] = opcode_str  # Для jmp, je, jn
 
-        reg_bin_to_name = {v: k for k, v in REGISTERS.items()}
+            if opcode_str == 'inputchar':
+                self.operands['input_type'] = 'char'
+            elif opcode_str == 'input':
+                self.operands['input_type'] = 'number'
 
-        if opcode_str == 'load':
-            reg_dest = reg_bin_to_name.get(operand1_bin)
-            immediate = int(operand2_bin, 2)
-            control_signals['load_enable'] = True
-            control_signals['reg_dest'] = reg_dest
-            control_signals['immediate'] = immediate
-        elif opcode_str == 'load_from':
-            reg_dest = reg_bin_to_name.get(operand1_bin)
-            reg_src = reg_bin_to_name.get(operand2_bin)
-            control_signals['load_from_enable'] = True
-            control_signals['reg_dest'] = reg_dest
-            control_signals['reg_src'] = reg_src
-        elif opcode_str == 'store':
-            reg_src = reg_bin_to_name.get(operand1_bin)
-            address = int(operand2_bin, 2)
-            control_signals['store_enable'] = True
-            control_signals['reg_src'] = reg_src
-            control_signals['address'] = address
-        elif opcode_str == 'store_to':
-            reg_src = reg_bin_to_name.get(operand1_bin)
-            reg_dest =  reg_bin_to_name.get(operand2_bin)
-            control_signals['store_enable'] = True
-            control_signals['reg_src'] = reg_src
-            control_signals['reg_dest'] = reg_dest
-        elif opcode_str in ['add', 'sub', 'mod']:
-            reg_dest = reg_bin_to_name.get(operand1_bin)
-            reg_src = reg_bin_to_name.get(operand2_bin)
-            control_signals['alu_enable'] = True
-            control_signals['alu_op'] = opcode_str
-            control_signals['reg_dest'] = reg_dest
-            control_signals['reg_src'] = reg_src
-        elif opcode_str in ['cmp']:
-            reg_src1 = reg_bin_to_name.get(operand1_bin)
-            reg_src2 = reg_bin_to_name.get(operand2_bin)
-            control_signals['alu_enable'] = True
-            control_signals['alu_op'] = opcode_str
-            control_signals['reg_src1'] = reg_src1
-            control_signals['reg_src2'] = reg_src2
-        elif opcode_str in ['jmp','je', 'jn']:
-            address = int(operand2_bin, 2)
-            control_signals['jump'] = True
-            control_signals['branch'] = opcode_str
-            control_signals['address'] = address
-        elif opcode_str in ['input', 'inputchar']:
-            reg_dest = reg_bin_to_name.get(operand1_bin)
-            port = int(operand2_bin, 2)
-            control_signals['read_enable'] = True
-            control_signals['reg_dest'] = reg_dest
-            control_signals['port'] = port
-            control_signals['input_type'] = 'char' if opcode_str == 'inputchar' else 'number'
-        elif opcode_str in ['output', 'outputchar']:
-            reg_src = reg_bin_to_name.get(operand1_bin)
-            port = int(operand2_bin, 2)
-            control_signals['write_enable'] = True
-            control_signals['reg_src'] = reg_src
-            control_signals['port'] = port
-            control_signals['output_type'] = 'char' if opcode_str == 'outputchar' else 'number'
-        elif opcode_str == 'stop':
-            control_signals['halt'] = True
-        else:
-            raise Exception(f"[Error] Неизвестный опкод: {opcode_str}")
+            if opcode_str == 'outputchar':
+                self.operands['output_type'] = 'char'
+            elif opcode_str == 'output':
+                self.operands['output_type'] = 'number'
 
-        return control_signals
+        self.current_microprogram = MICROPROGRAM.get(opcode_str, [])
+        for i in range(len(self.current_microprogram)):
+            micro_instruction = self.current_microprogram[i]
+            micro_instruction(self.control_signals,self.operands)
+
+        return self.control_signals.__dict__.copy()
