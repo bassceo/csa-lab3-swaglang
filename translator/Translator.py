@@ -1,5 +1,5 @@
-import re
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -266,20 +266,22 @@ class SwagLangTranslator:
         return (parsed_data + parsed_run).replace("\n", "")
 
 
-
 def binary_string_to_bytes(binary_str):
     padding_length = (8 - len(binary_str) % 8) % 8
-    binary_str = binary_str + '0' * padding_length
+    binary_str = binary_str + "0" * padding_length
     byte_array = bytearray()
     for i in range(0, len(binary_str), 8):
-        byte = binary_str[i:i+8]
+        byte = binary_str[i : i + 8]
         byte_array.append(int(byte, 2))
     return bytes(byte_array)
+
 
 def main():
     parser = argparse.ArgumentParser(description="SwagLang Translator")
     parser.add_argument("input_file", type=Path, help="Путь к исходному файлу SwagLang")
-    parser.add_argument("output_file", type=Path, help="Путь для сохранения бинарного файла")
+    parser.add_argument(
+        "output_file", type=Path, help="Путь для сохранения бинарного файла"
+    )
     args = parser.parse_args()
 
     if not args.input_file.is_file():
@@ -308,6 +310,7 @@ def main():
     except Exception as e:
         print(f"Ошибка при сохранении бинарного файла: {e}", file=sys.stderr)
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
