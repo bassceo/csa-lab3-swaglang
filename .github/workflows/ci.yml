@@ -42,4 +42,4 @@ jobs:
         poetry install
     - name: Run tests
       run: |
-        poetry run python pipeline.py ./SwagLangPrograms/prob2.sl 90
+        python pipeline.py ./SwagLangPrograms/prob2.sl 90
