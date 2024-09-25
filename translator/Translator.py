@@ -183,7 +183,7 @@ class SwagLangTranslator:
                 val_bin = self.REGISTERS[val].zfill(23)
                 return binary + reg_bin + val_bin
 
-            if type(val) is int:
+            if isinstance(val,int):
                 val_bin = self.format_immediate(val, 23)
                 return binary + reg_bin + val_bin
 
@@ -201,7 +201,7 @@ class SwagLangTranslator:
         data = self.code_tree["data"]
         for x in data:
             self.data_section[list(x.keys())[0]] = self.current_address
-            if type(x[list(x.keys())[0]]) is int:
+            if isinstance(x[list(x.keys())[0]],int):
                 binary += (
                     self.translate_command({"load": ["R1", int(x[list(x.keys())[0]])]})
                     + "\n"
