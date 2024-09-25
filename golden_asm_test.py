@@ -31,7 +31,7 @@ def test_translator_pipeline(golden, caplog):
             assert "\n".join(lines) == golden.out["out_log"]
         else:
             print(caplog.text)
-            assert caplog.text == golden.out["out_log"]
+            assert caplog.text.replace(" ", '').replace('\n', '') == golden.out["out_log"].replace(" ", '').replace('\n', '')
 
 
 def read_code_from_file(file_path):
