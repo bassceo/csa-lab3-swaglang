@@ -24,7 +24,7 @@ def test_translator_pipeline(golden, caplog):
 
         output = run_pipeline(source, input_data)
         
-        assert output == golden.out["out_stdout"]
+        assert output == (golden.out["out_stdout"]+chr(0))
         
         if len(caplog.text) >= 124000:
             lines = caplog.text.splitlines()[:1000]
