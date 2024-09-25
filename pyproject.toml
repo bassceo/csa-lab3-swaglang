@@ -73,18 +73,22 @@ lint.select = [
 ]
 
 lint.ignore = [
-    "COM812", # The following rules may cause conflicts when used with the formatter: `COM812`.
-    "E501",   # allow lines longer than 80 symbols (up to 120)
-    "T201",   # `print` found
-    "RUF002", # Docstring contains ambiguous `В` (CYRILLIC CAPITAL LETTER VE). Did you mean `B` (LATIN CAPITAL LETTER B)
+    "COM812", 
+    "E501", 
+    "T201", 
+    "RUF002",
     "C90",
-    "RUF003", # Comment contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)
-    "PTH123", # `open()` should be replaced by `Path.open()`
-    # to simplify code for non-Python programmers
-    "PTH118", # `os.path.join()` should be replaced by `Path` with `/` operator
-    "UP032",  # [*] Use f-string instead of `format` call
-
-
+    "RUF003", 
+    "PTH123",
+    "PTH118",
+    "UP032",
+    "TRY003",
+    "TRY002",
+    "RUF012",
+    "RUF015",
+    "A002",
+    "INP001",
+    "RUF001"
 ]
 lint.unfixable = [
     "ERA001", # prohibit to "auto-fix" (=remove) commented-out code
